@@ -1,15 +1,14 @@
-import React from "react";
-import AppBar from "@material-ui/core/AppBar";
 import {
-  Button,
-  Typography,
-  Toolbar,
+  createStyles,
   IconButton,
   makeStyles,
-  createStyles,
   Theme,
+  Toolbar,
+  Typography,
 } from "@material-ui/core";
+import AppBar from "@material-ui/core/AppBar";
 import MenuIcon from "@material-ui/icons/Menu";
+import React from "react";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,11 +38,8 @@ export default function BarCodeAppBar() {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          Barcode Reader
+          SCMP - Leitor de código de barras
         </Typography>
-        <Button color="inherit">
-          <Typography variant="body1">Scan</Typography>
-        </Button>
       </Toolbar>
     </AppBar>
   );
