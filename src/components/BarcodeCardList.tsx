@@ -9,9 +9,12 @@ import {
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-export default function BarcodeCardList() {
+interface BarcodeCardListProps {
+  codeScannerd: string;
+}
+export default function BarcodeCardList(props: BarcodeCardListProps) {
   return (
-    <React.Fragment>
+    <>
       <Card elevation={2} style={{ marginTop: "20px" }}>
         <CardContent>
           <Typography variant="body1">Nenhum código foi lido ainda.</Typography>
@@ -20,7 +23,7 @@ export default function BarcodeCardList() {
       <Card elevation={2} style={{ marginTop: "20px" }}>
         <CardHeader title="B000000" />
         <CardContent>
-          <Typography variant="body1">B00000000</Typography>
+          <Typography variant="body1">{props.codeScannerd}</Typography>
         </CardContent>
         <CardActions>
           <IconButton color="secondary" aria-label="Deletar">
@@ -28,6 +31,6 @@ export default function BarcodeCardList() {
           </IconButton>
         </CardActions>
       </Card>
-    </React.Fragment>
+    </>
   );
 }
