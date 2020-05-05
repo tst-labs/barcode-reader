@@ -15,22 +15,27 @@ interface BarcodeCardListProps {
 export default function BarcodeCardList(props: BarcodeCardListProps) {
   return (
     <>
-      <Card elevation={2} style={{ marginTop: "20px" }}>
-        <CardContent>
-          <Typography variant="body1">Nenhum código foi lido ainda.</Typography>
-        </CardContent>
-      </Card>
-      <Card elevation={2} style={{ marginTop: "20px" }}>
-        <CardHeader title="B000000" />
-        <CardContent>
-          <Typography variant="body1">{props.codeScannerd}</Typography>
-        </CardContent>
-        <CardActions>
-          <IconButton color="secondary" aria-label="Deletar">
-            <DeleteIcon />
-          </IconButton>
-        </CardActions>
-      </Card>
+      {props.codeScannerd === "" ? (
+        <Card elevation={2} style={{ marginTop: "20px" }}>
+          <CardContent>
+            <Typography variant="body1">
+              Nenhum código foi lido ainda.
+            </Typography>
+          </CardContent>
+        </Card>
+      ) : (
+        <Card elevation={2} style={{ marginTop: "20px" }}>
+          <CardHeader title={props.codeScannerd} />
+          <CardContent>
+            <Typography variant="body1">{props.codeScannerd}</Typography>
+          </CardContent>
+          <CardActions>
+            <IconButton color="secondary" aria-label="Deletar">
+              <DeleteIcon />
+            </IconButton>
+          </CardActions>
+        </Card>
+      )}
     </>
   );
 }

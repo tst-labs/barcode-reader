@@ -38,7 +38,7 @@ export default function BarCodeAppBar() {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          SCMP - Leitor de código de barras
+          Leitor de código de barra
         </Typography>
       </Toolbar>
     </AppBar>

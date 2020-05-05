@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import BarCodeAppBar from "./BarCodeAppBar";
 import BarcodeCardList from "./BarcodeCardList";
 import BarcodeScanner from "./BarcodeScanner";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const App = () => {
   const classes = useStyles();
   const [codeScannerd, setCodeScanner] = useState("");
+
   return (
     <div className={classes.root}>
       <BarCodeAppBar />

@@ -10,6 +10,12 @@ interface ScannerProps {
 }
 
 const Scanner = (props: ScannerProps) => {
+  const handleClose = () => {
+    scanner.removeEventListener("detected", props.onDetected).stop();
+    props.onCancel();
+    console.log("cleanup...");
+  };
+
   const scanner = Quagga.config(props.config).fromSource({
     ...props.config.inputStream,
     target: ".overlay__content",
@@ -20,12 +26,15 @@ const Scanner = (props: ScannerProps) => {
     scannerPromisse.promise.then(props.onDetected).catch(props.onCancel);
 
     return () => {
-      scanner.removeEventListener("detected", props.onDetected).stop();
-      console.log("cleanup...");
+      handleClose();
     };
-  }, [scanner, props.onDetected, props.onCancel]);
+  }, []);
 
-  return <div className="overlay__content" />;
+  return (
+    <div className="overlay__content">
+      <video style={{ width: "95%", height: "95%" }}></video>
+    </div>
+  );
 };
 
 export default Scanner;
