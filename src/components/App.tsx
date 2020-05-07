@@ -25,6 +25,7 @@ const App = () => {
       if (!barcodeConfig) {
         persist("barcode-config", defaultCameraConfig);
       }
+      setConfig(barcodeConfig);
       return barcodeConfig;
     };
 
@@ -34,7 +35,6 @@ const App = () => {
 
   const updateConfig = (newConfig: CameraConfig): object => {
     persist("barcode-config", newConfig);
-    console.log("persist ", newConfig);
     setConfig(newConfig);
     return newConfig;
   };

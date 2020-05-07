@@ -57,7 +57,6 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
   };
 
   const saveConfig = () => {
-    console.log("On save, activeConfig =  ", activeConfig);
     props.updateConfig(activeConfig);
     toogleConfigurationDialog();
   };
@@ -84,7 +83,6 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
 
   const handleCameraSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     const selectedVideoID: string = event.target.value as string;
-    console.log("selectedVideoID = ", selectedVideoID);
 
     const newConstraints = {
       ...activeConfig.inputStream.constraints,
@@ -98,7 +96,6 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
       ...activeConfig,
       inputStream: newInputStream,
     };
-    console.log("modConfig", modConfig);
     setActiveConfig(modConfig);
   };
   return (
@@ -109,7 +106,6 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
             Leitor de código de barras
           </Typography>
           <IconButton
-            edge="end"
             color="inherit"
             aria-label="config"
             className={classes.menuButton}
@@ -127,7 +123,12 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
         <DialogTitle>Configurações</DialogTitle>
         <DialogContent>
           <InputLabel id="select-camera">Selecione a camera padrão</InputLabel>
-          <Select labelId="select-camera" native onChange={handleCameraSelect}>
+          <Select
+            labelId="select-camera"
+            native
+            onChange={handleCameraSelect}
+            value={props.actualConfiguration.inputStream.constraints.deviceId}
+          >
             <option value={"0"}>---</option>
             {videoDevicesList?.map((vd) => (
               <option key={vd.groupId} value={vd.deviceId}>

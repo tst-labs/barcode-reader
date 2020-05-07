@@ -25,7 +25,7 @@ export default function BarcodeCardList(props: BarcodeCardListProps) {
         </Card>
       ) : (
         <Card elevation={2} style={{ marginTop: "20px" }}>
-          <CardHeader title={props.codeScannerd} />
+          <CardHeader title={"Codigo lido"} />
           <CardContent>
             <Typography variant="body1">{props.codeScannerd}</Typography>
           </CardContent>

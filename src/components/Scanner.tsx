@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import Quagga from "quagga";
+import { InputStream } from "../config/ConfigType";
 
 interface ScannerProps {
   onDetected: Function;
   onCancel: Function;
   config: {
-    inputStream: any;
+    inputStream: InputStream;
   };
 }
 
@@ -25,7 +26,6 @@ const Scanner = (props: ScannerProps) => {
     scannerPromisse.promise.then(props.onDetected).catch(props.onCancel);
 
     return () => {
-      console.log("handle close");
       handleClose();
     };
   }, []);
