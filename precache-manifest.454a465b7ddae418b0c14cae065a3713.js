@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "49a4dcb04e69b878f8b16a7e1f9df610",
+    "revision": "d6c6f7eb0a66832f29d91cd89bde94f1",
     "url": "/barcode-reader/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/barcode-reader/static/js/2.5044192e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d2c4bb3a2e7c9a39458c",
-    "url": "/barcode-reader/static/js/main.c06617ee.chunk.js"
+    "revision": "8c30160d6a56a3a0e8a5",
+    "url": "/barcode-reader/static/js/main.877d7aae.chunk.js"
   },
   {
     "revision": "8738bdc5a8bf12392249",
