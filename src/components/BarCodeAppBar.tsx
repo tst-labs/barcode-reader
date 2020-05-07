@@ -81,6 +81,8 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
     };
   }, []);
 
+  let cameraIndex = 0;
+
   const handleCameraSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     const selectedVideoID: string = event.target.value as string;
 
@@ -130,11 +132,14 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
             value={props.actualConfiguration.inputStream.constraints.deviceId}
           >
             <option value={"0"}>---</option>
-            {videoDevicesList?.map((vd) => (
-              <option key={vd.groupId} value={vd.deviceId}>
-                {vd.label}
-              </option>
-            ))}
+            {videoDevicesList?.map((vd) => {
+              cameraIndex++;
+              return (
+                <option key={vd.groupId} value={vd.deviceId}>
+                  {vd.label === "" ? `Camera ${cameraIndex}` : vd.label}
+                </option>
+              );
+            })}
           </Select>
         </DialogContent>
         <DialogActions>
