@@ -17,9 +17,9 @@ import {
 } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import SettingsIcon from "@material-ui/icons/Settings";
-import React, { useEffect, useState } from "react";
-import { VideoInput } from "./VideoInput";
+import React, { useLayoutEffect, useState } from "react";
 import { CameraConfig } from "../config/ConfigType";
+import { VideoInput } from "./VideoInput";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -61,7 +61,7 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
     toogleConfigurationDialog();
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const listVideoDevices = async () => {
       const lDevices: MediaDeviceInfo[] = await navigator.mediaDevices.enumerateDevices();
       const lvd: VideoInput[] = lDevices
