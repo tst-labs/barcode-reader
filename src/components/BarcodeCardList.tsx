@@ -11,8 +11,12 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 interface BarcodeCardListProps {
   codeScannerd: string;
+  setCodeScanner: React.Dispatch<React.SetStateAction<string>>;
 }
 export default function BarcodeCardList(props: BarcodeCardListProps) {
+  const clearCodeScaned = () => {
+    props.setCodeScanner("");
+  };
   return (
     <>
       {props.codeScannerd === "" ? (
@@ -30,7 +34,11 @@ export default function BarcodeCardList(props: BarcodeCardListProps) {
             <Typography variant="body1">{props.codeScannerd}</Typography>
           </CardContent>
           <CardActions>
-            <IconButton color="secondary" aria-label="Deletar">
+            <IconButton
+              color="secondary"
+              aria-label="Deletar"
+              onClick={clearCodeScaned}
+            >
               <DeleteIcon />
             </IconButton>
           </CardActions>

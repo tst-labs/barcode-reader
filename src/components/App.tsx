@@ -42,7 +42,10 @@ const App = () => {
   return (
     <div className={classes.root}>
       <BarCodeAppBar updateConfig={updateConfig} actualConfiguration={config} />
-      <BarcodeCardList codeScannerd={codeScanned} />
+      <BarcodeCardList
+        setCodeScanner={setCodeScanner}
+        codeScannerd={codeScanned}
+      />
       <BarcodeScanner setCodeScanner={setCodeScanner} activeConfig={config} />
     </div>
   );
