@@ -46,7 +46,9 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [openConfig, setOpenConfig] = useState<boolean>(false);
-
+  const [selectedDeviceId, setSelectedDeviceId] = useState(
+    props.actualConfiguration.inputStream.constraints.deviceId
+  );
   const [videoDevicesList, setVideoDevicesList] = useState<VideoInput[]>();
   const [activeConfig, setActiveConfig] = useState<CameraConfig>(
     props.actualConfiguration
@@ -98,6 +100,7 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
       ...activeConfig,
       inputStream: newInputStream,
     };
+    setSelectedDeviceId(selectedVideoID);
     setActiveConfig(modConfig);
   };
   return (
@@ -129,7 +132,7 @@ export default function BarCodeAppBar(props: BarCodeAppBarProps) {
             labelId="select-camera"
             native
             onChange={handleCameraSelect}
-            value={props.actualConfiguration.inputStream.constraints.deviceId}
+            value={selectedDeviceId}
           >
             <option value={"0"}>---</option>
             {videoDevicesList?.map((vd) => {
