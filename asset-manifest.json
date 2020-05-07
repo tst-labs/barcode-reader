@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/barcode-reader/static/js/main.fc826653.chunk.js",
-    "main.js.map": "/barcode-reader/static/js/main.fc826653.chunk.js.map",
+    "main.js": "/barcode-reader/static/js/main.0884e595.chunk.js",
+    "main.js.map": "/barcode-reader/static/js/main.0884e595.chunk.js.map",
     "runtime-main.js": "/barcode-reader/static/js/runtime-main.faa5c9b7.js",
     "runtime-main.js.map": "/barcode-reader/static/js/runtime-main.faa5c9b7.js.map",
-    "static/js/2.180ad659.chunk.js": "/barcode-reader/static/js/2.180ad659.chunk.js",
-    "static/js/2.180ad659.chunk.js.map": "/barcode-reader/static/js/2.180ad659.chunk.js.map",
+    "static/js/2.5044192e.chunk.js": "/barcode-reader/static/js/2.5044192e.chunk.js",
+    "static/js/2.5044192e.chunk.js.map": "/barcode-reader/static/js/2.5044192e.chunk.js.map",
     "index.html": "/barcode-reader/index.html",
-    "precache-manifest.35c300d3a1ebb0212fc8c360d2a2b10c.js": "/barcode-reader/precache-manifest.35c300d3a1ebb0212fc8c360d2a2b10c.js",
+    "precache-manifest.3a9b45b112a3aea0245d6a24126ef9af.js": "/barcode-reader/precache-manifest.3a9b45b112a3aea0245d6a24126ef9af.js",
     "service-worker.js": "/barcode-reader/service-worker.js",
-    "static/js/2.180ad659.chunk.js.LICENSE.txt": "/barcode-reader/static/js/2.180ad659.chunk.js.LICENSE.txt",
+    "static/js/2.5044192e.chunk.js.LICENSE.txt": "/barcode-reader/static/js/2.5044192e.chunk.js.LICENSE.txt",
     "static/media/barcode.2183cd00.svg": "/barcode-reader/static/media/barcode.2183cd00.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.faa5c9b7.js",
-    "static/js/2.180ad659.chunk.js",
-    "static/js/main.fc826653.chunk.js"
+    "static/js/2.5044192e.chunk.js",
+    "static/js/main.0884e595.chunk.js"
   ]
 }
