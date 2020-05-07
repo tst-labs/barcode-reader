@@ -20,13 +20,14 @@ const App = () => {
   const [codeScanned, setCodeScanner] = useState("");
   const [config, setConfig] = useState(defaultCameraConfig);
   useEffect(() => {
-    const loadConfig = (): object => {
+    const loadConfig = () => {
       const barcodeConfig = load("barcode-config");
       if (!barcodeConfig) {
         persist("barcode-config", defaultCameraConfig);
+        setConfig(defaultCameraConfig);
+      } else {
+        setConfig(barcodeConfig);
       }
-      setConfig(barcodeConfig);
-      return barcodeConfig;
     };
 
     loadConfig();
