@@ -13,7 +13,6 @@ const Scanner = (props: ScannerProps) => {
   const handleClose = () => {
     scanner.removeEventListener("detected", props.onDetected).stop();
     props.onCancel();
-    console.log("cleanup...");
   };
 
   const scanner = Quagga.config(props.config).fromSource({
@@ -26,6 +25,7 @@ const Scanner = (props: ScannerProps) => {
     scannerPromisse.promise.then(props.onDetected).catch(props.onCancel);
 
     return () => {
+      console.log("handle close");
       handleClose();
     };
   }, []);

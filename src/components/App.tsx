@@ -1,9 +1,11 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BarCodeAppBar from "./BarCodeAppBar";
 import BarcodeCardList from "./BarcodeCardList";
 import BarcodeScanner from "./BarcodeScanner";
-import { Button } from "@material-ui/core";
+import { load, persist } from "../utils/Storage";
+import defaultCameraConfig from "../config/defaultCameraConfig";
+import { CameraConfig } from "../config/ConfigType";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,13 +17,33 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App = () => {
   const classes = useStyles();
-  const [codeScannerd, setCodeScanner] = useState("");
+  const [codeScanned, setCodeScanner] = useState("");
+  const [config, setConfig] = useState(defaultCameraConfig);
+  useEffect(() => {
+    const loadConfig = (): object => {
+      const barcodeConfig = load("barcode-config");
+      if (!barcodeConfig) {
+        persist("barcode-config", defaultCameraConfig);
+      }
+      return barcodeConfig;
+    };
+
+    loadConfig();
+    return () => {};
+  }, []);
+
+  const updateConfig = (newConfig: CameraConfig): object => {
+    persist("barcode-config", newConfig);
+    console.log("persist ", newConfig);
+    setConfig(newConfig);
+    return newConfig;
+  };
 
   return (
     <div className={classes.root}>
-      <BarCodeAppBar />
-      <BarcodeCardList codeScannerd={codeScannerd} />
-      <BarcodeScanner setCodeScanner={setCodeScanner} />
+      <BarCodeAppBar updateConfig={updateConfig} actualConfiguration={config} />
+      <BarcodeCardList codeScannerd={codeScanned} />
+      <BarcodeScanner setCodeScanner={setCodeScanner} activeConfig={config} />
     </div>
   );
 };
