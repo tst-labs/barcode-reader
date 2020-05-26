@@ -51,6 +51,7 @@ const BarcodeScanner = (props: BarcodeScannerProps) => {
             onCancel={stopScan}
           />
         </DialogContent>
+
         <DialogActions>
           <Button color="primary" variant="contained" onClick={closeCamera}>
             Fechar

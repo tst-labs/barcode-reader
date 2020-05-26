@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Quagga from "quagga";
 import { InputStream } from "../config/ConfigType";
+import "./Scanner.css";
 
 interface ScannerProps {
   onDetected: Function;
@@ -11,15 +12,18 @@ interface ScannerProps {
 }
 
 const Scanner = (props: ScannerProps) => {
-  const handleClose = () => {
-    scanner.removeEventListener("detected", props.onDetected).stop();
-    props.onCancel();
-  };
+  const cameraOverlay = useRef(null);
 
   const scanner = Quagga.config(props.config).fromSource({
     ...props.config.inputStream,
     target: ".overlay__content",
   });
+
+  const handleClose = () => {
+    scanner.removeEventListener("detected", props.onDetected).stop();
+
+    props.onCancel();
+  };
 
   useEffect(() => {
     const scannerPromisse: any = scanner.toPromise();
@@ -31,8 +35,12 @@ const Scanner = (props: ScannerProps) => {
   }, []);
 
   return (
-    <div className="overlay__content">
-      <video style={{ width: "95%", height: "95%" }}></video>
+    <div
+      ref={cameraOverlay}
+      className="overlay__content"
+      style={{ textAlign: "center" }}
+    >
+      <video className="videoClass"></video>
     </div>
   );
 };

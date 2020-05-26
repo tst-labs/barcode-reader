@@ -1,0 +1,15 @@
+@media all and (orientation: portrait) {
+  .videoClass {
+    width: 95%;
+    height: 95%;
+    text-align: center;
+  }
+}
+
+@media all and (orientation: landscape) {
+  .videoClass {
+    width: 50%;
+    height: 50%;
+    text-align: center;
+  }
+}
