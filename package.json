@@ -2,7 +2,7 @@
   "name": "barcode-reader",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ricardodiasc.github.com/barcode-reader/",
+  "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
@@ -22,6 +22,7 @@
   "scripts": {
     "predeploy": "yarn build",
     "deploy": "gh-pages -b gh-pages -d build",
+    "deploy-tst": "gh-pages -b gh-pages -d build -r githubtst",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
